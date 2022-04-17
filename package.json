@@ -4,7 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "seed": "ts-node dbschema/seed.ts"
+    "seed": "ts-node dbschema/seed.ts",
+    "postinstall": "npx edgeql-js"
   },
   "dependencies": {
     "edgedb": "latest",

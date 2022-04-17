@@ -119,13 +119,21 @@ To deploy this application, follow the EdgeDB deployment guides for your preferr
 - [Fly.io](https://www.edgedb.com/docs/guides/deployment/fly_io)
 - [Docker](https://www.edgedb.com/docs/guides/deployment/docker) (cloud-agnostic)
 
-After setting up your cloud-hosted EdgeDB instance:
+Then:
 
 1. Find your instance's DSN (AKA connection string). The exact instructions for this depend on which cloud you are deploying to.
-2. Deploy this app to Vercel with the button below. You'll be prompted to provide a value for `EDGEDB_DSN`.
-3. Open the application.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-edgedb&project-name=with-edgedb&repository-name=with-edgedb&env=EDGEDB_DSN)
+2. Use this DSN to migrate your remote instance to the latest schema. Run this command from inside your project directory.
+
+```
+edgedb migrate --dsn <your-instance-dsn> --tls-security insecure
+```
+
+You have to disable TLS checks with `--tls-security insecure`. All EdgeDB instances use TLS by default, but configuring it is out of scope of this project.
+
+3. Deploy this app to Vercel with the button above. You'll be prompted to provide a value for `EDGEDB_DSN`, the value from the previous step.
+
+4. Open the application.
 
 ## Next steps
 
