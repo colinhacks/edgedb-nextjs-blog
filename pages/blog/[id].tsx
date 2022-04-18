@@ -61,7 +61,7 @@ const Post: React.FC<PostProps> = (props) => {
           </p>
           <br />
           <br />
-          <ReactMarkdown children={props.content || ''} />
+          <ReactMarkdown>{props.content || ''}</ReactMarkdown>
         </div>
       </Layout>
     )
