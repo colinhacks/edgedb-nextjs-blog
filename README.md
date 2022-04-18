@@ -90,7 +90,14 @@ The application should now be running on http://localhost:3000.
 
 ## Notes
 
-### API structure
+#### packages structure
+
+- `/`: See all published posts
+- `/drafts`: See all drafts
+- `/create`: Form to create new draft
+- `/blog/:id`: See either an edit page or a published post, depending on the publish status of the post.
+
+#### API structure
 
 - `POST /api/post`: Create a new post
   - Body: `{title: string; content: string; authorName: string}`
@@ -107,10 +114,11 @@ Evolving the application typically requires three steps:
 2. Generate a new migration with `edgedb migration create`
 3. Apply the migration with `edgedb migrate`
 4. Regenerate the query builder with `npx edgeql-js`
+5. Update the application code, as needed.
 
 ## Deployment
 
-To deploy this application, follow the EdgeDB deployment guides for your preferred cloud provider:
+To deploy this application, deploy EdgeDB to your preferred cloud provider:
 
 - [AWS](https://www.edgedb.com/docs/guides/deployment/aws_aurora_ecs)
 - [Google Cloud](https://www.edgedb.com/docs/guides/deployment/gcp)
@@ -133,7 +141,7 @@ You have to disable TLS checks with `--tls-security insecure`. All EdgeDB instan
 
 3. Deploy this app to Vercel with the button above. You'll be prompted to provide a value for `EDGEDB_DSN`, the value from the previous step.
 
-4. Open the application.
+4. Open the application at the deployment URL supplied by Vercel.
 
 ## Next steps
 
