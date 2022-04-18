@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "seed": "ts-node dbschema/seed.ts",
-    "postinstall": "npx edgeql-js"
+    "prebuild": "npx edgeql-js"
   },
   "dependencies": {
     "@types/react": "^18.0.5",
